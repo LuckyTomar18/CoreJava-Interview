@@ -1,0 +1,63 @@
+package com.rays.collection.equalshashcode;
+
+public class Employee {
+
+	private int id;
+	private String name;
+	private int salary;
+
+	public Employee(int id, String name, int salary) {
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getSalary() {
+		return salary;
+	}
+
+	public boolean equals(Object obj) {
+		
+		System.out.println("in equals");
+
+		if (obj == null) {
+			return false;
+		}
+
+		if (!(obj instanceof Employee)) {
+
+			return false;
+
+		}
+
+		Employee e = (Employee) obj;
+
+		boolean b = this.id == e.id && this.name.equals(e.name) && this.salary == e.salary;
+
+		return b;
+
+	}
+
+	public int hashcode() {
+
+		System.out.println("in hashcode");
+
+		String str = id + name + salary;
+
+		return str.hashCode();
+	}
+
+	public String toString() {
+
+		String str = id + " " + name + " " + salary;
+		return str;
+	}
+}
